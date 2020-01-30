@@ -1,0 +1,20 @@
+<h2>Groups</h2>
+<% if @groups %>
+<ul>
+  <% @groups.each do |group| %>
+    <li>Group: <%= group["name"] %></li>
+    <ul>
+    <% group["messages"].each do |message| %>
+      <li>Message: <%= message["content"]%></li>
+      <li>By: <%= message["author"]%></li>
+      <ul>
+      <% message["comments"].each do |comment| %>
+        <li>Comment: <%= comment["content"]%></li>
+        <li>By: <%= comment["author"]%></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </ul>
+  <% end %>
+</ul>
+<% end %>
